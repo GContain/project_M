@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container my-3">
+    <table class="table">
+        <thead>
+            <tr class="table-dark">
+                <th>번호</th><th>제목</th><th>작성일시</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if board_list %}
+        {% for i in board_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>
+                <a href="{% url 'board:detail' i.id %}">{{ i.subject }}</a>
+            </td>
+            <td>{{ i.create_date }}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">질문이 없습니다.</td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+    <a href="{% url 'board:board_create' %}" class="btn btn-primary">게시판 등록</a>
+</div>
+
+{% endblock %}

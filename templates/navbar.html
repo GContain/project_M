@@ -1,7 +1,7 @@
 <!-- 네비게이션바 -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">HOME</a>
+        <a class="navbar-brand" href="/">산악회?</a>
         <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent"
@@ -23,6 +23,9 @@
                     {% if not user.is_authenticated %}
                         <a class="nav-link" href="{% url 'common:signup' %}">회원가입</a>
                     {% endif %}
+                </li>
+                <li>
+                    <a class="nav-link" href="{% url 'board:index' %}">게시판</a>
                 </li>
             </ul>
         </div>
