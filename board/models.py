@@ -16,7 +16,7 @@ class Board(models.Model):
 
 class Reply(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='author_reply')
-    board = models.ForeignKey(Board,on_delete=models.CASCADE)
+    board = models.ForeignKey(Board, on_delete=models.CASCADE)
     content = models.TextField()
     create_date = models.DateTimeField()
     modify_date = models.DateTimeField(null=True, blank=True)
