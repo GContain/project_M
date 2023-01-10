@@ -24,4 +24,5 @@ urlpatterns = [
     path('board/',include('board.urls')),
     path('',views.index,name='index'),
     
+    
 ]
