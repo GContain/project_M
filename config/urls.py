@@ -22,7 +22,5 @@ urlpatterns = [
     path('main/',include('main.urls')),
     path('common/',include('common.urls')),
     path('board/',include('board.urls')),
-    path('',views.index,name='index'),
-    
-    
+    path('',views.index,name='index'),   
 ]
