@@ -109,13 +109,13 @@ while True:
             # 같은 파일 생성시 오류 발생 해결을 위해 try:except문 사용
             try:
                 x = img_path.split(",")[1]
-                f = open(f"C:/Users/ASUS/Desktop/web_crawling/day03/images/{mountainName}/{img_name}.jpeg","wb")
+                f = open(f"C:/projects/project_M/static/images/{mountainName}/{img_name}.jpeg","wb")
                 img = base64.b64decode(f"{x}")
                 f.write(img)
                 f.close()
 
                 temp_split = f.name.split("/")
-                img_url = temp_split[6]+"/"+temp_split[7]+"/"+temp_split[8]
+                img_url = temp_split[4]+"/"+temp_split[5]+"/"+temp_split[6]
                 # print(img_url) # img_url 확인용
 
             except:
@@ -126,12 +126,12 @@ while True:
             # 같은 파일 생성시 오류 발생 해결을 위해 try:except문 사용
             try:
                 res = requests.get(img_path)
-                f = open(f"C:/Users/ASUS/Desktop/web_crawling/day03/images/{mountainName}/{img_name}.jpeg","wb")
+                f = open(f"C:/projects/project_M/static/images/{mountainName}/{img_name}.jpeg","wb")
                 f.write(res.content)
                 f.close()
 
                 temp_split = f.name.split("/")
-                img_url = temp_split[6]+"/"+temp_split[7]+"/"+temp_split[8]
+                img_url = temp_split[4]+"/"+temp_split[5]+"/"+temp_split[6]
                 # print(img_url) # img_url 확인용
 
             except:
