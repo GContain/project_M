@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+
 {% block content %}
 
 <h1 id="main_content">main_index</h1>
@@ -11,27 +11,15 @@
 {% block script %}
 
 <script type="text/javascript">
+
     function search() {
-    $.ajax({
-        url : "{% url 'main:search' %}",
-        type : 'GET',
-        data : {"search_data" : $("#search").val()},
-        success : function(rep) {
-            console.log(rep)
-            console.log(rep.length)
-            let html = ""
-            for(i=0; i < rep.length; i++) {
-              if (rep.length != 1) {      
-                  html += rep[1]+"<br>"   // 주차글 제외하고 출력
-                  break
-              }else{  
-                html += rep[i]    // 설명글 출력
-                break
-              }
-            }
-            $("#main_content").html(html)
-        }
-    })
-}
+        $.ajax({
+            url : "{% url 'main:search' %}",
+            type : 'GET',
+            data : {"search_data" : $("#search").val()},
+        })
+    }
+
 </script>
+
 {% endblock %}
