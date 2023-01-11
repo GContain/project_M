@@ -64,36 +64,31 @@ print('[주소] :', address, '\n[위도, 경도] :', latlng)
 print('='*50)
 
 
-# google 접속
 driver.get(f"https://www.google.com/search?q={mountainName}")
 
 # 웹페이지 이동 ('이미지')
 br_me = driver.find_elements(By.CSS_SELECTOR,".hdtb-mitem > a")
 
 for i in br_me:
-    # print(i.text) # 리스트 확인용
 
     if i.text == "이미지":
         i.click()
         break
 
-# 폴더 생성
 try:
-    os.mkdir('C:/projects/project_M/static/images/'+str(search))
+    os.mkdir('C:/Users/ASUS/Desktop/web_crawling/day03/images/'+str(mountainName))
 except:
     pass
 
-#이미지 다운 순번
-cnt = 1;
+before_height = 0
+while True:
     
-# 이미지 추출 >> BeautifulSoup사용시 select()의 값 꼭 확인해 볼 것! 
-time.sleep(1)
-soup = BeautifulSoup(driver.page_source,"html.parser")
-br_img = soup.select('.islrc > .isv-r > .wXeWr > div > img')
+    time.sleep(1)
+    soup = BeautifulSoup(driver.page_source,"html.parser")
+    br_img = soup.select('.islrc > .isv-r > .wXeWr > div > img')
 
-for i in br_img:
-    if cnt < 6:
-
+    for i in br_img:
+    # 구글에서 새로운 형식 도입시 에러가 발생 할 수 있으므로 try:except으로 처리
         try:
             img_path = i.get('src')
             
@@ -108,31 +103,49 @@ for i in br_img:
         except:
             pass
 
-        if img_type == "data": # data형식은 base64로 처리            
+        # 구글에서 새로운 형식 도입시 에러가 발생 할 수 있으므로 else문 추가
+        if img_type == "data": # data형식은 base64로 처리
+            print(1) # 확인용
+            # 같은 파일 생성시 오류 발생 해결을 위해 try:except문 사용
             try:
                 x = img_path.split(",")[1]
-                f = open(f"C:/projects/project_M/static/images/{search}/{cnt}.jpeg","wb")
+                f = open(f"C:/Users/ASUS/Desktop/web_crawling/day03/images/{mountainName}/{img_name}.jpeg","wb")
                 img = base64.b64decode(f"{x}")
                 f.write(img)
                 f.close()
+
+                temp_split = f.name.split("/")
+                img_url = temp_split[6]+"/"+temp_split[7]+"/"+temp_split[8]
+                # print(img_url) # img_url 확인용
+
             except:
                 pass
 
         elif img_type == "https": # https형식은 requests로 처리
+            print(2) # 확인용
+            # 같은 파일 생성시 오류 발생 해결을 위해 try:except문 사용
             try:
                 res = requests.get(img_path)
-                f = open(f"C:/projects/project_M/static/images/{search}/{cnt}.jpeg","wb")
+                f = open(f"C:/Users/ASUS/Desktop/web_crawling/day03/images/{mountainName}/{img_name}.jpeg","wb")
                 f.write(res.content)
                 f.close()
+
+                temp_split = f.name.split("/")
+                img_url = temp_split[6]+"/"+temp_split[7]+"/"+temp_split[8]
+                # print(img_url) # img_url 확인용
+
             except:
                 pass
 
         else:
             continue
-    
-    else : break;
-    cnt += 1;
 
-    temp_split = f.name.split("/")
-    img_url = temp_split[4]+"/"+temp_split[5]+"/"+temp_split[6]
-    print(img_url)
+    new_height = driver.execute_script("return document.documentElement.scrollHeight")
+    driver.execute_script(f"window.scrollTo(0,{new_height});")
+    
+    # 멈춰!
+    if before_height == new_height:
+        break
+    before_height = new_height
+
+time.sleep(2)
