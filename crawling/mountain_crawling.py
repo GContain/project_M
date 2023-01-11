@@ -143,6 +143,103 @@ def crawl_img(mountainName) :
         print(img_url)
         return img_url
 
+
+
+
+
+# driver.get(f"https://www.google.com/search?q={mountainName}")
+
+# # 웹페이지 이동 ('이미지')
+# br_me = driver.find_elements(By.CSS_SELECTOR,".hdtb-mitem > a")
+
+# for i in br_me:
+
+#     if i.text == "이미지":
+#         i.click()
+#         break
+
+# try:
+#     os.mkdir('C:/Users/ASUS/Desktop/web_crawling/day03/images/'+str(mountainName))
+# except:
+#     pass
+
+# before_height = 0
+# while True:
+    
+#     time.sleep(1)
+#     soup = BeautifulSoup(driver.page_source,"html.parser")
+#     br_img = soup.select('.islrc > .isv-r > .wXeWr > div > img')
+
+#     for i in br_img:
+#     # 구글에서 새로운 형식 도입시 에러가 발생 할 수 있으므로 try:except으로 처리
+#         try:
+#             img_path = i.get('src')
+            
+#             if type(img_path) != str:
+#                 img_path = i.get('data-src')
+
+#             # 이미지 이름 추출 및 정규표현식
+#             img_name = i.get('alt')
+#             img_name = re.sub('[\/:*?"<>|]',"_",img_name)  
+#             img_type = img_path.split(":")[0]
+
+#         except:
+#             pass
+
+#         # 구글에서 새로운 형식 도입시 에러가 발생 할 수 있으므로 else문 추가
+#         if img_type == "data": # data형식은 base64로 처리
+#             print(1) # 확인용
+#             # 같은 파일 생성시 오류 발생 해결을 위해 try:except문 사용
+#             try:
+#                 x = img_path.split(",")[1]
+#                 f = open(f"C:/projects/project_M/static/images/{mountainName}/{img_name}.jpeg","wb")
+#                 img = base64.b64decode(f"{x}")
+#                 f.write(img)
+#                 f.close()
+
+#                 temp_split = f.name.split("/")
+#                 img_url = temp_split[4]+"/"+temp_split[5]+"/"+temp_split[6]
+#                 # print(img_url) # img_url 확인용
+
+#             except:
+#                 pass
+
+#         elif img_type == "https": # https형식은 requests로 처리
+#             print(2) # 확인용
+#             # 같은 파일 생성시 오류 발생 해결을 위해 try:except문 사용
+#             try:
+#                 res = requests.get(img_path)
+#                 f = open(f"C:/projects/project_M/static/images/{mountainName}/{img_name}.jpeg","wb")
+#                 f.write(res.content)
+#                 f.close()
+
+#                 temp_split = f.name.split("/")
+#                 img_url = temp_split[4]+"/"+temp_split[5]+"/"+temp_split[6]
+#                 # print(img_url) # img_url 확인용
+
+#             except:
+#                 pass
+
+#         else:
+#             continue
+
+#     new_height = driver.execute_script("return document.documentElement.scrollHeight")
+#     driver.execute_script(f"window.scrollTo(0,{new_height});")
+    
+#     # 멈춰!
+#     if before_height == new_height:
+#         break
+#     before_height = new_height
+
+# time.sleep(2)
+
+
+
+
+
+
+
+
 print(crawl_info(mountainName))
 print(crawl_location(mountainName))
 
