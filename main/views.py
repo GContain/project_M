@@ -8,13 +8,14 @@ import os.path
 
 # Create your views here.
 
+
 def index(request):
     return render(request,'main/index.html')
 
 @api_view(['GET'])
 def search(req):
     data = req.GET.get('search_data'); # print(data) # 확인용
-    file = "C:/projects/project_M/crawling/search_data.txt"
+    file = "C:/projects/crawling/search_data.txt"
     
     if os.path.isfile(file):
         f = open(file,'a',encoding='utf8')
