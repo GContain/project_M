@@ -1,22 +1,7 @@
 {% load static %}
-
 <!doctype html>
-
 <html lang="ko">
     
-<style>
-  
-    .jb-text { position: absolute; top: 40%; width: 100%; }
-
-    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
-    .jb-text p {margin-top: -24px; text-align: center; font-size: 48px; color: #ffffff;
-                font-family: 'DM Serif Display', serif;
-                text-shadow: 5px 5px 5px black;}
-    #search {opacity: 0.5; border-color: darkseagreen; border-width: 6px;}
-    #btn_sc {color: pink; border-width: 6px; box-shadow: 5px 5px 5px black;}
-    #div_sc {width: 61%; padding-left: 39%; box-shadow: 5px 5px 5px black;}
-    
-  </style>
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -28,44 +13,27 @@
         <title>3조</title>
     </head>
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <title>3조</title>
-
-    <style>
-       
-    </style>
+    <body>
+        <!-- 네비게이션바 -->
+        {% include 'navbar.html' %}
 
 
-</head>
+        <!-- 기본 템플릿 안에 삽입될 내용 Start -->
+        {% block content %}
+        {% endblock %}
+        <!-- 기본 템플릿 안에 삽입될 내용 End -->
 
-<body>
-    <!-- 네비게이션바 -->
-    {% include 'navbar.html' %}
+        <!-- Bootstrap JS -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
+        <!-- Jquery -->
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
 
-    <!-- 기본 템플릿 안에 삽입될 내용 Start -->
-    {% block content %}
-    {% endblock %}
-    <!-- 기본 템플릿 안에 삽입될 내용 End -->
+        <!-- 자바스크립트 Start -->
+        {% block script %}
+        {% endblock %}
+        <!-- 자바스크립트 End -->
 
-    <!-- Bootstrap JS -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
-    <!-- Jquery -->
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-
-    <!-- 자바스크립트 Start -->
-    {% block script %}
-    {% endblock %}
-    <!-- 자바스크립트 End -->
-
-</body>
+    </body>
 
 </html>

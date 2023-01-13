@@ -1,22 +1,15 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
 {% block content %}
-
-<video id="videoSize" src="{% static 'videos/mountain.mp4' %}" onclick="searchInfo()" autoplay loop muted></video>
-<form action="main/search" id="searchType" style="display: none;">
-    <input id="search" type="text" class="form-control" placeholder="검색어 입력 *'-'*" aria-label="Recipient's username" aria-describedby="button-addon2">
-    <button id="btn_sc" class="btn btn-outline-secondary" type="button" onclick="search()">Button</button>
-</form>
 
 <video src="{% static 'videos/mountain.mp4' %}" onclick="searchInfo()" autoplay loop muted></video>
 <div class="jb-text">  <!-- 동영상 위에 들어갈 텍스트 -->
     <p><b>Mountain</b></p>
     <div id="div_sc" class="input-group mb-3">
         <form action="main/search" id="searchType" style="display: none;">
-            <input id="search" type="text" class="form-control" placeholder="검색어 입력 *'-'*" aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button id="btn_sc" class="btn btn-outline-secondary" type="button" onclick="search()">Button</button>
+            <input name="search" id="search" type="text" class="form-control" placeholder="검색어 입력 *'-'*" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button id="btn_sc" class="btn btn-outline-secondary" type="submit">Button</button>
         </form>
     </div>
 </div>

@@ -4,8 +4,6 @@ from .models import Mountain, Mountain_img
 import os.path
 
 # Create your views here.
-
-
 def index(request):
     return render(request,'main/index.html')
 
