@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
+
 {% load static %}
+
 {% block content %}
 
-<form action="main/search">
-    <input id="search" name="search" type="text" placeholder="산 이름 입력">
+<video id="videoSize" src="{% static 'videos/mountain.mp4' %}" onclick="searchInfo()" autoplay loop muted></video>
+<form action="main/search" id="searchType" style="display: none;">
+    <input name="search" type="text" placeholder="산 이름 입력">
     <button type="submit">search</button>
 </form>
-
-<video src="{% static 'videos/mountain.mp4' %}" autoplay loop muted></video>
-
 {% endblock %}
 
+
 {% block script %}
+<script>
+    function searchInfo(){
+        $("#searchType").fadeIn(2000)
+    }
+</script>
 {% endblock %}
