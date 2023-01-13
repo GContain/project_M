@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from rest_framework.decorators import api_view
 from .models import Mountain, Mountain_img
 
 import os.path
