@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
 
-<h1 id="main_content">main_index</h1>
-<input id="search" type="text" placeholder="산 이름 입력">
-<button type="button" onclick="search()">search</button>
+    <div id="btn2" ><img id="imgaa" onclick="search1()" src="static/images/배경.jpg " style="z-index: 1;"></div>
+ 
+    <div id="search2" style="display: none; z-index: 2;">
+        <input id="search" type="text" placeholder="산 이름 입력">
+        <button type="button" onclick="search()">search</button>
+    </div>
+
+
+
+<!-- style="z-index: 1;" -->
 
 {% endblock %}
+
 
 {% block script %}
 
@@ -14,11 +23,17 @@
 
     function search() {
         $.ajax({
-            url : "{% url 'main:search' %}",
-            type : 'GET',
-            data : {"search_data" : $("#search").val()},
+            url: "{% url 'main:search' %}",
+            type: 'GET',
+            data: { "search_data": $("#search").val() },
         })
     }
+
+    function search1() {
+        $("#search2").fadeIn(2000);        
+        
+    }
+
 
 </script>
 

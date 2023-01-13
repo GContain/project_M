@@ -3,32 +3,55 @@
 <!doctype html>
 
 <html lang="ko">
-    
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
-        <!-- CSS -->
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-        <title>3조</title>
-    </head>
 
-    <body>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>3조</title>
+
+    <style>
+        #imgaa {
+
+            width: 100%;
+            height: 100vh;
+
+            position: absolute;
+
+        }
+
+        #search2 {
+            position: absolute;
+            opacity: 0.8;
+            top: 50%;
+            left: 45%;
+        }
+    </style>
+
+
+</head>
+
+<body>
     <!-- 네비게이션바 -->
     {% include 'navbar.html' %}
+
 
     <!-- 기본 템플릿 안에 삽입될 내용 Start -->
     {% block content %}
     {% endblock %}
     <!-- 기본 템플릿 안에 삽입될 내용 End -->
-    
+
     <!-- Bootstrap JS -->
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
+
+
     <!-- Jquery -->
-    <script src="http://code.jquery.com/jquery-latest.js"></script> 
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
 
     <!-- Map JS -->
     <script src="{% static 'js/map.js' %}"></script>
@@ -38,6 +61,6 @@
     {% endblock %}
     <!-- 자바스크립트 End -->
 
-    </body>
-    
+</body>
+
 </html>

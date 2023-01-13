@@ -1,3 +1,5 @@
+
+
 from django.shortcuts import render, HttpResponse, redirect
 from rest_framework.decorators import api_view
 from .models import Mountain, Mountain_img
