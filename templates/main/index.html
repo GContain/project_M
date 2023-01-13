@@ -2,12 +2,17 @@
 {% load static %}
 {% block content %}
 
-<h1 id="main_content">main_index</h1>
-<input id="search" type="text" placeholder="산 이름 입력">
-<button type="button" onclick="search()">search</button>
+<!-- <h1 id="main_content">main_index</h1> -->
 
-<div>
-    <video src="{% static 'videos/mountain.mp4' %}" autoplay loop muted></video>
+
+
+<video src="{% static 'videos/mountain.mp4' %}" autoplay loop muted></video>
+<div class="jb-text">  <!-- 동영상 위에 들어갈 텍스트 -->
+    <p><b>Mountain</b></p>
+    <div id="div_sc" class="input-group mb-3">
+        <input id="search" type="text" class="form-control" placeholder="검색어 입력 *'-'*" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button id="btn_sc" class="btn btn-outline-secondary" type="button" onclick="search()">Button</button>
+    </div>
 </div>
 
 {% endblock %}
