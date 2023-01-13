@@ -2,28 +2,12 @@
 {% load static %}
 {% block content %}
 
-<h1 id="main_content">main_index</h1>
-<input id="search" type="text" placeholder="산 이름 입력">
-<button type="button" onclick="search()">search</button>
-
-<div>
-    <video src="{% static 'videos/test_video.mp4' %}" autoplay loop muted></video>
-</div>
+<form action="main/search">
+    <input id="search" name="search" type="text" placeholder="산 이름 입력">
+    <button type="submit">search</button>
+</form>
 
 {% endblock %}
 
 {% block script %}
-
-<script type="text/javascript">
-
-    function search() {
-        $.ajax({
-            url : "{% url 'main:search' %}",
-            type : 'GET',
-            data : {"search_data" : $("#search").val()},
-        })
-    }
-
-</script>
-
 {% endblock %}
