@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    {{ mountain.name }}<br>
+    {{ mountain.address }}<br>
+    {{ mountain.latitude }}<br>
+    {{ mountain.longitude }}<br>
+    {{ mountain.info }}<br>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    view_map()
+</script>
+{% endblock %}
