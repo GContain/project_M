@@ -29,7 +29,7 @@
         {% if board_list %}
         {% for board in board_list %}
         <tr>
-            <td>
+            <td align="center">
                 <!-- 번호 = 전체건수 - 시작인덱스 - 현재인덱스 + 1 -->
                 {{ board_list.paginator.count|sub:board_list.start_index|sub:forloop.counter0|add:1 }}
             </td>
@@ -39,8 +39,8 @@
                 <span class="text-danger small mx-2">{{board.reply_set.count}}</span>
                 {% endif %}
             </td>
-            <td>{{ board.author.username }}</td> <!-- 글쓴이 추가 -->
-            <td>{{ board.create_date }}</td>
+            <td align="center">{{ board.author.username }}</td> <!-- 글쓴이 추가 -->
+            <td align="center">{{ board.create_date }}</td>
         </tr>
         {% endfor %}
         {% else %}

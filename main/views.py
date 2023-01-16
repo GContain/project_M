@@ -4,8 +4,6 @@ from .models import Mountain, Mountain_img
 import os.path
 
 # Create your views here.
-
-
 def index(request):
     return render(request,'main/index.html')
 
@@ -24,5 +22,5 @@ def search(request):
         f.close()
 
     m = get_object_or_404(Mountain, pk=data); #print(m,type(m)) # 확인용
-    context = {'mountain':m}
+    context = {'mountain':m};
     return render(request,'main/search.html',context)
