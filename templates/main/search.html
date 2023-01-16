@@ -2,16 +2,20 @@
 {% load static %}
 {% block content %}
 
-    {{ mountain.name }}<br>
-    {{ mountain.address }}<br>
-    {{ mountain.latitude }}<br>
-    {{ mountain.longitude }}<br>
-    {{ mountain.info }}<br>
+<hr>
+<table border="5" class="table table-success table-striped">
+  <tr><th> {{ mountain.name }} </th></tr>
+  <tr><th> {{ mountain.address }} </th></tr>
+  <tr><th> {{ mountain.latitude }} </th></tr>
+  <tr><th> {{ mountain.longitude }} </th></tr>
+  <tr><th> {{ mountain.info }} </th></tr>
+</table>
+<hr>
+
+<div id="map" style="width:100%;height:350px;"></div>
+<butotn type="button" onclick="view_map({{ mountain.latitude }}, {{ mountain.longitude }})">button</butotn>
 
 {% endblock %}
-
-<!-- map.js -->
-<script src="{% static 'js/map.js' %}"></script>
 
 {% block script %}
 {% endblock %}
