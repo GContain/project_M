@@ -3,11 +3,11 @@
 
 {% block content %}
 
-<video src="{% static 'videos/mountain.mp4' %}" onclick="searchInfo()" autoplay loop muted></video>
+<video id="videoSize" src="{% static 'videos/mountain.mp4' %}" autoplay loop muted></video>
 <div class="jb-text">  <!-- 동영상 위에 들어갈 텍스트 -->
     <p><b>Mountain</b></p>
     <div id="div_sc" class="input-group mb-3">
-        <form action="main/search" id="searchType" style="display: none;">
+        <form action="main/search" id="searchType">
             <input name="search" id="search" type="text" class="form-control" placeholder="검색어 입력 *'-'*" aria-label="Recipient's username" aria-describedby="button-addon2">
             <button id="btn_sc" class="btn btn-outline-secondary" type="submit">Button</button>
         </form>
@@ -19,8 +19,5 @@
 
 {% block script %}
 <script>
-    function searchInfo(){
-        $("#searchType").fadeIn(2000)
-    }
 </script>
 {% endblock %}
