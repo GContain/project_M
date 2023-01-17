@@ -3,3 +3,4 @@ settings.py
 __pycache__
 static/videos/
 static/images/
+.static_root

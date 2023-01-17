@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-<body onload="">
-  {% block content %}
+{% block content %}
+
 <br>
 <div align="center">
     <img src="{% get_static_prefix %}images/{{ mountain.name }}/pic_1.jpeg" width="300px" height="300px">
@@ -11,28 +11,33 @@
     <img src="{% get_static_prefix %}images/{{ mountain.name }}/pic_5.jpeg" width="300px" height="300px">
 </div> 
 
-  <hr>
-  <table border="3">
+<hr>
+<table border="3">
     <tr>
-      <th><h1 style="font-size:350%; font-family: 궁서;" align="center">{{ mountain.name }}</h1></th>
-      <th rowspan="3" style="width: 50%;">
-        <div id="map" style="width: 100%; height:500px;"></div>
-      </th>
+        <th>
+            <h1 style="font-size:350%; font-family: 궁서;" align="center">{{ mountain.name }}</h1>
+        </th>
+        <th rowspan="3" style="width: 50%;">
+            <div id="map" style="width: 100%; height:500px;"></div>
+        </th>
     </tr>
     <tr>
-      <th><h5 align="center"><span style="border-radius: 5em; padding: 0.5em; background: #afd1be">{{ mountain.address }}</span></h5></th>
+        <th><h5 align="center"><span style="border-radius: 5em; padding: 0.5em; background: #afd1be">{{ mountain.address }}</span></h5></th>
     </tr>
     <tr>
-      <td style="padding-left: 2em; padding-right: 2em;">{{ mountain.info }}</td>
+        <td style="padding-left: 2em; padding-right: 2em;">{{ mountain.info }}</td>
     </tr>
-  </table>
+</table>
   
-  {% endblock %}
-  {% block script %}
-  <script>
+{% endblock %}
+
+{% block script %}
+
+<script>
 
     window.onload=view_map({{ mountain.latitude }}, {{ mountain.longitude }})
-  </script>
-  {% endblock %}
+    
+</script>
 
-</body>
+{% endblock %}
+
