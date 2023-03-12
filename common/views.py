@@ -17,3 +17,26 @@ def signup(request):
     else:
         form = UserForm()
     return render(request, 'common/signup.html', {'form':form})
+
+import pymysql
+def all_mark(request):
+    con = pymysql.connect(host='mountain.ct0ysj5bxpal.ap-northeast-2.rds.amazonaws.com',
+                        user='admin', password='kg3whghkdlxld!!', db='mydb', charset='utf8')
+    cur = con.cursor()
+
+    sql = f'select latitude, longitude from mydb.main_mountain;'
+    cur.execute(sql)
+
+    latlng_rows = cur.fetchall()
+
+    sql = f'select name from mydb.main_mountain;'
+    cur.execute(sql)
+
+    name_rows = cur.fetchall()
+
+    context = {'mountain_latlng':latlng_rows, 'mountain_name':name_rows}
+
+    # print(rows[0][0])
+    # print(type(rows))
+    
+    return render(request, 'main/whole_map.html', context)

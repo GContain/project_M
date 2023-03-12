@@ -12,7 +12,7 @@
 </div> 
 
 <hr>
-<table border="3">
+<table border="3" style="width: 100%;">
     <tr>
         <th>
             <h1 style="font-size:350%; font-family: 궁서;" align="center">{{ mountain.name }}</h1>
@@ -35,7 +35,7 @@
 
 <script>
 
-    window.onload=view_map({{ mountain.latitude }}, {{ mountain.longitude }})
+    window.onload=view_map({{ mountain.latitude }}, {{ mountain.longitude }});
     
 </script>
 

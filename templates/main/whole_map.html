@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+
+<table border="3" style="width: 80%; height: 820px;" align="center">
+    <tr>
+        <th>
+            <div id="map" style="width: 100%; height: 100%;"></div>
+        </th>
+    </tr>
+</table>
+  
+{% endblock %}
+
+{% block script %}
+
+<script>
+    
+    window.onload = view_all("{{ mountain_latlng | safe }}", "{{ mountain_name | safe }}");
+    
+</script>
+
+{% endblock %}
+
